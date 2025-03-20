@@ -21,4 +21,10 @@ export const GlobalCss = createGlobalStyle`
         background-color: ${colors.primary_bg_color};
         color: ${colors.primary_text_color}
     }
+
+    .container{
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto;
+    }
 `
