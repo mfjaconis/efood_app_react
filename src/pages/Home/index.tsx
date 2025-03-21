@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import ListRestaurants from "./../../components/ListRestaurants/index";
+import ListRestaurants from "../../components/ListRestaurants";
 
 function Home() {
 	return (
