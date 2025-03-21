@@ -6,10 +6,10 @@ import bgHeader from "../../assets/images/bg.svg";
 
 export const HeaderContainer = styled.header<Props>`
     background-image:url(${bgHeader});
-    height:${(props) => (props.home ? "384px" : "186px")} ;
     display: flex;
     align-items: center;
     text-align: center;
+    padding: 50px;
     `;
 
 export const P = styled.p<Props>`
