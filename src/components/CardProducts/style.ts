@@ -5,7 +5,7 @@ export const CardContainer = styled.section`
     display: flex;
     flex-direction: column;
     width: 320px;
-    height: 420px;
+    height: 380px;
     background-color: ${colors.terceary_bg_color};
     color: ${colors.primary_bg_color};
 

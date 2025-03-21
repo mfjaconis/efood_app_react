@@ -1,5 +1,5 @@
 import ProductImage from "../../assets/images/pizza.svg";
-import Tag from "../Tag";
+import Button from "../Button";
 import { CardContainer, Image, InfoCard, Paragraph, Title } from "./style";
 
 type ProductsCardProps = {
@@ -14,7 +14,7 @@ function CardProducts({ title, description }: ProductsCardProps) {
 			<InfoCard>
 				<Title>{title}</Title>
 				<Paragraph>{description}</Paragraph>
-				<Tag to="/perfil">Saiba Mais</Tag>
+				<Button>Adicionar ao carrinho</Button>
 			</InfoCard>
 		</CardContainer>
 	);

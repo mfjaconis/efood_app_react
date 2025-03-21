@@ -1,7 +1,7 @@
 import CardRestaurants from "./../CardRestaurants/index";
 import { List, ListContainer } from "./styles";
 
-function ListRestaurants() {
+function ListProducts() {
 	return (
 		<>
 			<ListContainer>
@@ -51,4 +51,4 @@ function ListRestaurants() {
 	);
 }
 
-export default ListRestaurants;
+export default ListProducts;
