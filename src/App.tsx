@@ -27,7 +27,6 @@ function App() {
 	return (
 		<>
 			<GlobalCss />
-
 			<RouterProvider router={rotas} />
 			<Footer />
 		</>
