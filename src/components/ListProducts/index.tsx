@@ -1,4 +1,4 @@
-import CardProducts from "./../CardProducts/index";
+import CardProducts from "../CardProducts/index";
 import { List, ListContainer } from "./styles";
 
 function ListProducts() {
