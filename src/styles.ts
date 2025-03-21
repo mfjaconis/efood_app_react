@@ -20,4 +20,9 @@ export const GlobalCss = createGlobalStyle`
         background-color: ${colors.primary_bg_color};
         color: ${colors.terceary_bg_color}
     }
+
+    .container{
+        max-width: 1024px;
+        margin: 0 auto;
+    }
 `;

@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import CardRestaurants from "./components/CardRestaurants";
 import Header from "./components/Header";
+import ListRestaurants from "./components/ListRestaurants";
 import { GlobalCss } from "./styles";
 
 const rotas = createBrowserRouter([
@@ -8,7 +8,7 @@ const rotas = createBrowserRouter([
 		path: "/",
 		element: (
 			<>
-				<CardRestaurants />
+				<ListRestaurants />
 			</>
 		),
 	},

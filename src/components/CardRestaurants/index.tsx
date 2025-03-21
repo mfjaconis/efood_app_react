@@ -10,32 +10,37 @@ import {
 	TagsContainer,
 } from "./style";
 
-function CardRestaurants() {
+type RestaurantCardProps = {
+	title: string;
+	categories: string[];
+	rating: string;
+	description: string;
+};
+
+function CardRestaurants({
+	title,
+	categories = [],
+	rating,
+	description,
+}: RestaurantCardProps) {
 	return (
-		<>
-			<CardContainer>
-				<Image src={RestaurantImg} alt="Imagem do restaurante" />
-				<TagsContainer>
-					<Tag>Destaque da semana</Tag>
-					<Tag>Japonesa</Tag>
-				</TagsContainer>
-				<InfoCard>
-					<ContentName>
-						<h3>Nome do restaurante</h3>
-						<h3>
-							4.9 <img src={Star} alt="" />
-						</h3>
-					</ContentName>
-					<Paragraph>
-						A La Dolce Vita Trattoria leva a autêntica cozinha italiana até
-						você! Desfrute de massas caseiras, pizzas deliciosas e risotos
-						incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
-						embalados e sabor inesquecível. Peça já!
-					</Paragraph>
-					<Tag to="/perfil">Saiba Mais</Tag>
-				</InfoCard>
-			</CardContainer>
-		</>
+		<CardContainer>
+			<Image src={RestaurantImg} alt="Imagem do restaurante" />
+			<TagsContainer>
+				{Array.isArray(categories) &&
+					categories.map((category) => <Tag key={category}>{category}</Tag>)}
+			</TagsContainer>
+			<InfoCard>
+				<ContentName>
+					<h3>{title}</h3>
+					<h3>
+						{rating} <img src={Star} alt="" />
+					</h3>
+				</ContentName>
+				<Paragraph>{description}</Paragraph>
+				<Tag to="/perfil">Saiba Mais</Tag>
+			</InfoCard>
+		</CardContainer>
 	);
 }
 
