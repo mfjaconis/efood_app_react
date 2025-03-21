@@ -1,6 +1,6 @@
-import RestaurantImg from "../../assets/images/comida-japonesa.svg";
+import ProductImage from "../../assets/images/pizza.svg";
 import Tag from "../Tag";
-import { CardContainer, Image, InfoCard, Paragraph } from "./style";
+import { CardContainer, Image, InfoCard, Paragraph, Title } from "./style";
 
 type ProductsCardProps = {
 	title: string;
@@ -10,9 +10,9 @@ type ProductsCardProps = {
 function CardProducts({ title, description }: ProductsCardProps) {
 	return (
 		<CardContainer>
-			<Image src={RestaurantImg} alt="Imagem do restaurante" />
+			<Image src={ProductImage} alt="Imagem do restaurante" />
 			<InfoCard>
-				<h3>{title}</h3>
+				<Title>{title}</Title>
 				<Paragraph>{description}</Paragraph>
 				<Tag to="/perfil">Saiba Mais</Tag>
 			</InfoCard>

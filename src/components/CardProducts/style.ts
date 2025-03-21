@@ -2,34 +2,21 @@ import styled from "styled-components";
 import { colors } from "../../styles";
 
 export const CardContainer = styled.section`
-    position: relative;
-    width: 400px;
-    height: 420px;
-    border: 1px solid ${colors.terceary_bg_color};
-    background-color: ${colors.secundary_text_color};
-`;
-
-export const TagsContainer = styled.div`
-    position: absolute;
-    top: 0;
-    right: 15px;
     display: flex;
-    gap: 8px;  
-    margin-top: 10px;
+    flex-direction: column;
+    width: 320px;
+    height: 420px;
+    background-color: ${colors.terceary_bg_color};
+    color: ${colors.primary_bg_color};
+
 `;
 
 export const Image = styled.img`
-    max-width: 100%;
-    max-height: 396px;
-   
+    padding: 10px;   
 `;
-export const ContentName = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
+export const Title = styled.h3`
+    font-size: 16px;
+    font-weight: 900;
 `;
 
 export const InfoCard = styled.div`
@@ -38,4 +25,7 @@ export const InfoCard = styled.div`
 
 export const Paragraph = styled.p`
     margin: 20px 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
 `;
