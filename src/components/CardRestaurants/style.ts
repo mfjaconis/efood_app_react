@@ -4,14 +4,15 @@ import { colors } from "../../styles";
 export const CardContainer = styled.section`
     position: relative;
     width: 400px;
-    height: 398px;
+    height: 400px;
     border: 1px solid ${colors.terceary_bg_color};
+    background-color: ${colors.secundary_text_color};
 `;
 
 export const TagsContainer = styled.div`
     position: absolute;
     top: 0;
-    right: 5px;
+    right: 15px;
     display: flex;
     gap: 8px;  
     margin-top: 10px;
@@ -35,5 +36,5 @@ export const InfoCard = styled.div`
 `;
 
 export const Paragraph = styled.p`
-    margin: 10px 0;
+    margin: 20px 0;
 `;

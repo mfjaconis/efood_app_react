@@ -1,11 +1,18 @@
 import styled from "styled-components";
 import { colors } from "../../styles";
 
-export const TagContainer = styled.div`
+import type { Props } from ".";
+
+export const TagContainer = styled.div<Props>`
     background-color: ${colors.terceary_bg_color};
-    color: ${colors.secundary_bg_color};
-    font-size: 12px;
+    color: ${(props) => (props.to ? "inherit" : colors.secundary_bg_color)};
+    font-size: ${(props) => (props.to ? "14px" : "12px")};
     font-weight: 700;
     padding: 8px;
     display: inline;
+
+    a {
+    color: inherit;   
+    font-size: 14px; 
+  }
 `;

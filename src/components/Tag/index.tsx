@@ -1,14 +1,18 @@
 import type { JSX } from "react";
+import { Link } from "react-router-dom";
 import { TagContainer } from "./style";
 
-type Props = {
+export type Props = {
 	children: JSX.Element | string;
+	to?: string;
 };
 
-function Tag({ children }: Props) {
+function Tag({ children, to }: Props) {
 	return (
 		<>
-			<TagContainer>{children}</TagContainer>
+			<TagContainer>
+				{to ? <Link to={to}>{children}</Link> : children}
+			</TagContainer>
 		</>
 	);
 }

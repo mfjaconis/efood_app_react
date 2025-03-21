@@ -27,12 +27,12 @@ function CardRestaurants() {
 						</h3>
 					</ContentName>
 					<Paragraph>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos
-						eligendi recusandae facere optio ratione quo accusamus consequatur
-						cum illo consequuntur rerum reprehenderit perferendis iure, autem
-						quidem, quam corporis reiciendis libero?
+						A La Dolce Vita Trattoria leva a autêntica cozinha italiana até
+						você! Desfrute de massas caseiras, pizzas deliciosas e risotos
+						incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
+						embalados e sabor inesquecível. Peça já!
 					</Paragraph>
-					<button>Saiba Mais</button>
+					<Tag to="/perfil">Saiba Mais</Tag>
 				</InfoCard>
 			</CardContainer>
 		</>
