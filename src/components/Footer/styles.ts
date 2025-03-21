@@ -2,10 +2,6 @@ import styled from "styled-components";
 import { colors } from "../../styles";
 
 export const FooterContainer = styled.footer`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     background-color: ${colors.secundary_bg_color};
     height: 300px;
     padding: 30px;
@@ -23,4 +19,12 @@ export const SocialContainer = styled.div`
 export const Paragraph = styled.p`
     width: 71%;
     text-align: center;
+`;
+
+export const FooterSection = styled.section`
+   display: flex;
+   height: 200px;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
 `;
