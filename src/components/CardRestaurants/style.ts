@@ -3,7 +3,7 @@ import { colors } from "../../styles";
 
 export const CardContainer = styled.section`
     position: relative;
-    width: 472px;
+    width: 400px;
     height: 398px;
     border: 1px solid ${colors.terceary_bg_color};
 `;
@@ -13,12 +13,12 @@ export const TagsContainer = styled.div`
     top: 0;
     right: 5px;
     display: flex;
-    gap: 8px;  // espaçamento entre as tags
-    margin-top: 10px;  // espaço entre as tags e a imagem
+    gap: 8px;  
+    margin-top: 10px;
 `;
 
 export const Image = styled.img`
-    max-width: 470px;
+    max-width: 100%;
     max-height: 396px;
    
 `;
