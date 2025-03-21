@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ListRestaurants from "./components/ListRestaurants";
 import { GlobalCss } from "./styles";
@@ -20,6 +21,7 @@ function App() {
 			<GlobalCss />
 			<Header />
 			<RouterProvider router={rotas} />
+			<Footer />
 		</>
 	);
 }
