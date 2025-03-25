@@ -1,4 +1,3 @@
-import RestaurantImg from "../../assets/images/comida-japonesa.svg";
 import Star from "../../assets/images/star.svg";
 import Tag from "../Tag";
 import {
@@ -12,6 +11,7 @@ import {
 
 type RestaurantCardProps = {
 	title: string;
+	image: string;
 	categories: string[];
 	rating: string;
 	description: string;
@@ -19,13 +19,14 @@ type RestaurantCardProps = {
 
 function CardRestaurants({
 	title,
-	categories = [],
+	image,
+	categories,
 	rating,
 	description,
 }: RestaurantCardProps) {
 	return (
 		<CardContainer>
-			<Image src={RestaurantImg} alt="Imagem do restaurante" />
+			<Image src={image} alt="Imagem do restaurante" />
 			<TagsContainer>
 				{Array.isArray(categories) &&
 					categories.map((category) => <Tag key={category}>{category}</Tag>)}
