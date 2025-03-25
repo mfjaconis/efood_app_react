@@ -19,10 +19,8 @@ export const TagsContainer = styled.div`
 `;
 
 export const Image = styled.img`
-    min-width: 100%;
-    max-width: 100%;
-    max-height: 265px;
-   
+    width: 100%;
+    height: 265px;
 `;
 export const ContentName = styled.div`
     display: flex;
@@ -40,4 +38,5 @@ export const InfoCard = styled.div`
 
 export const Paragraph = styled.p`
     margin: 20px 0;
+    min-height: 133px;
 `;

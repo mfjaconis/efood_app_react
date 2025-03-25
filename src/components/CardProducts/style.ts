@@ -24,7 +24,6 @@ export const InfoCard = styled.div`
 `;
 
 export const Paragraph = styled.p`
-    min-height: 131px;
     margin: 20px 0;
     font-weight: 400;
     font-size: 14px;
