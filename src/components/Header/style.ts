@@ -28,7 +28,7 @@ export const LinkToHome = styled(Link)`
 
 export const HeaderPerfilContainer = styled.div`
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         
     `;
