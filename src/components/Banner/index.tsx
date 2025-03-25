@@ -1,11 +1,17 @@
 import { ContainerBanner, TitleRestaurant, TypeRestaurant } from "./style";
 
-function Banner() {
+type BannerProps = {
+	capa: string;
+	tipo: string;
+	title: string;
+};
+
+function Banner({ tipo, title, capa }: BannerProps) {
 	return (
-		<ContainerBanner>
+		<ContainerBanner style={{ backgroundImage: `url(${capa})` }}>
 			<div className="container">
-				<TypeRestaurant>Italiana</TypeRestaurant>
-				<TitleRestaurant>La Dolce Vita Trattoria</TitleRestaurant>
+				<TypeRestaurant>{tipo}</TypeRestaurant>
+				<TitleRestaurant>{title}</TitleRestaurant>
 			</div>
 		</ContainerBanner>
 	);

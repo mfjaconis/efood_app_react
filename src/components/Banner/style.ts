@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import ImageFoodBg from "../../assets/images/comida-italiana.svg";
 import { colors } from "../../styles";
 
 export const ContainerBanner = styled.image`
@@ -9,9 +8,12 @@ export const ContainerBanner = styled.image`
     display: block;
     width: 100%;
     height: 280px;
-    background-image: url(${ImageFoodBg});
     background-repeat: no-repeat;
     background-size: cover;
+    
+    &::first-letter {
+    text-transform: uppercase; 
+  } 
 
     &::before {
         content: ""; 
@@ -20,7 +22,7 @@ export const ContainerBanner = styled.image`
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.4); 
+        background-color: rgba(0, 0, 0, 0.6); 
         z-index: 1; 
     }
 
