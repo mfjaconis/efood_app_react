@@ -4,7 +4,7 @@ import { colors } from "../../styles";
 export const CardContainer = styled.section`
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 400px;
     background-color: ${colors.terceary_bg_color};
     color: ${colors.primary_bg_color};
 
@@ -27,5 +27,5 @@ export const Paragraph = styled.p`
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    height: 180px;
+    height: 150px;
 `;
