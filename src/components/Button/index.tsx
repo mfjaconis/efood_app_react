@@ -4,12 +4,13 @@ import { ButtonStyled } from "./style";
 
 export type Props = {
 	children: JSX.Element | string;
+	onClick: () => void;
 };
 
-function Button({ children }: Props) {
+function Button({ children, onClick }: Props) {
 	return (
 		<>
-			<ButtonStyled>{children}</ButtonStyled>
+			<ButtonStyled onClick={onClick}>{children}</ButtonStyled>
 		</>
 	);
 }

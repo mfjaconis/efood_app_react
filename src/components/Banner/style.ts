@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../styles";
 
-export const ContainerBanner = styled.image`
+export const ContainerBanner = styled.div`
     color: ${colors.secundary_text_color};
     position: relative;
     display: block;

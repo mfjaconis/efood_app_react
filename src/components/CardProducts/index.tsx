@@ -5,16 +5,22 @@ type ProductsCardProps = {
 	title: string;
 	image: string;
 	description: string;
+	onClick: () => void;
 };
 
-function CardProducts({ title, description, image }: ProductsCardProps) {
+function CardProducts({
+	title,
+	description,
+	image,
+	onClick,
+}: ProductsCardProps) {
 	return (
 		<CardContainer>
 			<Image src={image} alt="Imagem do restaurante" />
 			<InfoCard>
 				<Title>{title}</Title>
 				<Paragraph>{description}</Paragraph>
-				<Button>Adicionar ao carrinho</Button>
+				<Button onClick={onClick}>Mais detalhes</Button>
 			</InfoCard>
 		</CardContainer>
 	);
