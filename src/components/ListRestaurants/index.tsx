@@ -1,48 +1,49 @@
+import { useEffect, useState } from "react";
 import CardRestaurants from "../CardRestaurants/index";
 import { List, ListContainer } from "./styles";
 
+type RestaurantsProps = {
+	id: number;
+	titulo: string;
+	destacado: boolean;
+	tipo: string;
+	avaliacao: number;
+	descricao: string;
+	capa: string;
+};
+
 function ListRestaurants() {
+	const [restaurants, setRestaurants] = useState<RestaurantsProps[]>([]);
+
+	useEffect(() => {
+		fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
+			.then((res) => res.json())
+			.then((data) => {
+				setRestaurants(data);
+				return console.log(data);
+			});
+	}, []);
+
 	return (
 		<ListContainer>
 			<div className="container">
 				<List>
-					<CardRestaurants
-						title="Hioki Sushi "
-						// biome-ignore lint/suspicious/noDuplicateJsxProps: <explanation>
-						categories={["Destaque da semana", "Japonesa"]}
-						rating="4.9"
-						description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-					/>
-					<CardRestaurants
-						title="La Dolce Vita Trattoria "
-						categories={["Italiana"]}
-						rating="4.9"
-						description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-					/>
-					<CardRestaurants
-						title="La Dolce Vita Trattoria"
-						categories={["Italiana"]}
-						rating="4.9"
-						description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-					/>
-					<CardRestaurants
-						title="La Dolce Vita Trattoria "
-						categories={["Italiana"]}
-						rating="4.9"
-						description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-					/>
-					<CardRestaurants
-						title="La Dolce Vita Trattoria "
-						categories={["Italiana"]}
-						rating="4.9"
-						description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-					/>
-					<CardRestaurants
-						title="La Dolce Vita Trattoria "
-						categories={["Italiana"]}
-						rating="4.9"
-						description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-					/>
+					{restaurants.map((restaurant) => {
+						const categories = [restaurant.tipo];
+						if (restaurant.destacado) {
+							categories.unshift("Destaque da semana");
+						}
+						return (
+							<CardRestaurants
+								key={restaurant.id}
+								image={restaurant.capa}
+								title={restaurant.titulo}
+								rating={restaurant.avaliacao.toString()}
+								categories={categories}
+								description={restaurant.descricao}
+							/>
+						);
+					})}
 				</List>
 			</div>
 		</ListContainer>

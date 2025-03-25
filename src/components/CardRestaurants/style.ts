@@ -4,9 +4,9 @@ import { colors } from "../../styles";
 export const CardContainer = styled.section`
     position: relative;
     width: 400px;
-    height: 420px;
     border: 1px solid ${colors.terceary_bg_color};
     background-color: ${colors.secundary_text_color};
+    padding-bottom: 5px;
 `;
 
 export const TagsContainer = styled.div`
@@ -19,8 +19,9 @@ export const TagsContainer = styled.div`
 `;
 
 export const Image = styled.img`
+    min-width: 100%;
     max-width: 100%;
-    max-height: 396px;
+    max-height: 265px;
    
 `;
 export const ContentName = styled.div`
@@ -34,6 +35,7 @@ export const ContentName = styled.div`
 
 export const InfoCard = styled.div`
     padding: 10px;
+    min-height: 131px;
 `;
 
 export const Paragraph = styled.p`

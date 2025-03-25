@@ -11,8 +11,13 @@ export const TagContainer = styled.div<Props>`
     padding: 8px;
     display: inline;
 
+    &::first-letter {
+    text-transform: uppercase; 
+  } 
+
     a {
     color: inherit;   
     font-size: 14px; 
   }
+
 `;
