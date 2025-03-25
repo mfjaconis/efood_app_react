@@ -10,6 +10,7 @@ import {
 } from "./style";
 
 type RestaurantCardProps = {
+	id: number;
 	title: string;
 	image: string;
 	categories: string[];
@@ -18,6 +19,7 @@ type RestaurantCardProps = {
 };
 
 function CardRestaurants({
+	id,
 	title,
 	image,
 	categories,
@@ -39,7 +41,7 @@ function CardRestaurants({
 					</h3>
 				</ContentName>
 				<Paragraph>{description}</Paragraph>
-				<Tag to="/perfil">Saiba Mais</Tag>
+				<Tag to={`/perfil/${id}`}>Saiba Mais</Tag>
 			</InfoCard>
 		</CardContainer>
 	);

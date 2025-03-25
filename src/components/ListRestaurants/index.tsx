@@ -20,7 +20,6 @@ function ListRestaurants() {
 			.then((res) => res.json())
 			.then((data) => {
 				setRestaurants(data);
-				return console.log(data);
 			});
 	}, []);
 
@@ -41,6 +40,7 @@ function ListRestaurants() {
 								rating={restaurant.avaliacao.toString()}
 								categories={categories}
 								description={restaurant.descricao}
+								id={restaurant.id}
 							/>
 						);
 					})}
