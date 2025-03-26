@@ -12,6 +12,8 @@ type CardapioProps = {
 	nome: string;
 	descricao: string;
 	foto: string;
+	preco: number;
+	porcao: string;
 };
 
 function ListProducts({ restaurantId }: ListProductsProps) {

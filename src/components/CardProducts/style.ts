@@ -4,10 +4,10 @@ import { colors } from "../../styles";
 export const CardContainer = styled.section`
     display: flex;
     flex-direction: column;
-    width: 400px;
     background-color: ${colors.terceary_bg_color};
     color: ${colors.primary_bg_color};
-
+    width: 320px;
+    border-radius: 5px;
 `;
 
 export const Image = styled.img`
@@ -28,4 +28,6 @@ export const Paragraph = styled.p`
     font-size: 14px;
     line-height: 22px;
     height: 150px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 `;
