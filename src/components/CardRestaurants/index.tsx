@@ -1,3 +1,4 @@
+import type { Restaurante } from "../../App";
 import Star from "../../assets/images/star.svg";
 import Tag from "../Tag";
 import {
@@ -9,38 +10,30 @@ import {
 	TagsContainer,
 } from "./style";
 
-type RestaurantCardProps = {
-	id: number;
-	title: string;
-	image: string;
-	categories: string[];
-	rating: string;
-	description: string;
-};
-
 function CardRestaurants({
 	id,
-	title,
-	image,
-	categories,
-	rating,
-	description,
-}: RestaurantCardProps) {
+	titulo,
+	tipo,
+	destacado,
+	avaliacao,
+	descricao,
+	capa,
+}: Restaurante) {
 	return (
 		<CardContainer>
-			<Image src={image} alt="Imagem do restaurante" />
+			<Image src={capa} alt="Imagem do restaurante" />
 			<TagsContainer>
-				{Array.isArray(categories) &&
-					categories.map((category) => <Tag key={category}>{category}</Tag>)}
+				{destacado && <Tag>Destaque da semana</Tag>}
+				<Tag>{tipo}</Tag>
 			</TagsContainer>
 			<InfoCard>
 				<ContentName>
-					<h3>{title}</h3>
+					<h3>{titulo}</h3>
 					<h3>
-						{rating} <img src={Star} alt="" />
+						{avaliacao} <img src={Star} alt="" />
 					</h3>
 				</ContentName>
-				<Paragraph>{description}</Paragraph>
+				<Paragraph>{descricao}</Paragraph>
 				<Tag to={`/perfil/${id}`}>Saiba Mais</Tag>
 			</InfoCard>
 		</CardContainer>

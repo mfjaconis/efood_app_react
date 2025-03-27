@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react";
+import type { Restaurante } from "../../App";
 import CardRestaurants from "../CardRestaurants/index";
 import { List, ListContainer } from "./styles";
 
-type RestaurantsProps = {
-	id: number;
-	titulo: string;
-	destacado: boolean;
-	tipo: string;
-	avaliacao: number;
-	descricao: string;
-	capa: string;
-};
-
 function ListRestaurants() {
-	const [restaurants, setRestaurants] = useState<RestaurantsProps[]>([]);
+	const [restaurants, setRestaurants] = useState<Restaurante[]>([]);
 
 	useEffect(() => {
 		fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
@@ -28,19 +19,17 @@ function ListRestaurants() {
 			<div className="container">
 				<List>
 					{restaurants.map((restaurant) => {
-						const categories = [restaurant.tipo];
-						if (restaurant.destacado) {
-							categories.unshift("Destaque da semana");
-						}
 						return (
 							<CardRestaurants
 								key={restaurant.id}
-								image={restaurant.capa}
-								title={restaurant.titulo}
-								rating={restaurant.avaliacao.toString()}
-								categories={categories}
-								description={restaurant.descricao}
+								capa={restaurant.capa}
+								titulo={restaurant.titulo}
+								avaliacao={restaurant.avaliacao}
+								tipo={restaurant.tipo}
+								descricao={restaurant.descricao}
 								id={restaurant.id}
+								destacado={restaurant.destacado}
+								cardapio={restaurant.cardapio}
 							/>
 						);
 					})}
