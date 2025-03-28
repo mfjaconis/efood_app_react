@@ -8,16 +8,17 @@ export const TagContainer = styled.div<Props>`
     color: ${(props) => (props.to ? "inherit" : colors.secundary_bg_color)};
     font-size: ${(props) => (props.to ? "14px" : "12px")};
     font-weight: 700;
-    padding: 8px;
+    padding: ${(props) => (props.to ? "4px 6px" : "6px 4px")};
     display: inline;
+    margin: ${(props) => (props.to ? "0" : "0 8px 12px")} ;
 
     &::first-letter {
     text-transform: uppercase; 
   } 
 
-    a {
-    color: inherit;   
-    font-size: 14px; 
+
+  a {
+    color: inherit;  
   }
 
 `;
