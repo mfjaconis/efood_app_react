@@ -1,25 +1,19 @@
+import type { CardapioItem } from "../../App";
 import Button from "../Button";
 import { CardContainer, Image, InfoCard, Paragraph, Title } from "./style";
 
 type ProductsCardProps = {
-	title: string;
-	image: string;
-	description: string;
+	cardapio: CardapioItem;
 	onClick: () => void;
 };
 
-function CardProducts({
-	title,
-	description,
-	image,
-	onClick,
-}: ProductsCardProps) {
+function CardProducts({ cardapio, onClick }: ProductsCardProps) {
 	return (
 		<CardContainer>
-			<Image src={image} alt="Imagem do restaurante" />
+			<Image src={cardapio.foto} alt="Imagem do restaurante" />
 			<InfoCard>
-				<Title>{title}</Title>
-				<Paragraph>{description}</Paragraph>
+				<Title>{cardapio.nome}</Title>
+				<Paragraph>{cardapio.descricao}</Paragraph>
 				<Button onClick={onClick}>Mais detalhes</Button>
 			</InfoCard>
 		</CardContainer>

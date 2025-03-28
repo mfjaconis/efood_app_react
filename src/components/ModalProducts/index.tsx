@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { CardapioItem } from "../../App";
 import Button from "../Button";
 import {
 	ButtonCloseModal,
@@ -9,22 +10,13 @@ import {
 	ParagraphInfo,
 } from "./style";
 
-type Product = {
-	id: number;
-	nome: string;
-	descricao: string;
-	preco: number;
-	porcao: string;
-	foto: string;
-};
-
 type ModalProductsProps = {
-	product: Product;
+	product: CardapioItem;
 	onClose: () => void;
 };
 
 function ModalProducts({ product, onClose }: ModalProductsProps) {
-	const [cart, setCart] = useState<Product[]>([]);
+	const [cart, setCart] = useState<CardapioItem[]>([]);
 	const formattedPrice = new Intl.NumberFormat("pt-BR", {
 		style: "currency",
 		currency: "BRL",

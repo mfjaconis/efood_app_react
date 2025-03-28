@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { CardapioItem } from "../../App";
 import CardProducts from "../CardProducts/index";
 import ModalProducts from "../ModalProducts";
 import { List, ListContainer } from "./styles";
@@ -7,19 +8,10 @@ type ListProductsProps = {
 	restaurantId: string;
 };
 
-type CardapioProps = {
-	id: number;
-	nome: string;
-	descricao: string;
-	foto: string;
-	preco: number;
-	porcao: string;
-};
-
 function ListProducts({ restaurantId }: ListProductsProps) {
-	const [cardapio, setCardapio] = useState<CardapioProps[]>([]);
+	const [cardapio, setCardapio] = useState<CardapioItem[]>([]);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [selectedProduct, setSelectedProduct] = useState<CardapioProps>();
+	const [selectedProduct, setSelectedProduct] = useState<CardapioItem>();
 
 	useEffect(() => {
 		fetch(
@@ -50,9 +42,7 @@ function ListProducts({ restaurantId }: ListProductsProps) {
 							return (
 								<CardProducts
 									key={item.id}
-									image={item.foto}
-									title={item.nome}
-									description={item.descricao}
+									cardapio={item}
 									onClick={() => openModal(item.id)}
 								/>
 							);

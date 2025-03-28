@@ -12,6 +12,7 @@ export const ButtonStyled = styled.button<Props>`
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
+    
     ${(props) =>
 			props.modal &&
 			`
