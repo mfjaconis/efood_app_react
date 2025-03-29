@@ -3,7 +3,7 @@ import { colors } from "../../styles";
 
 export const FooterContainer = styled.footer`
     background-color: ${colors.secundary_bg_color};
-    height: 300px;
+    height: 298px;
     padding: 30px;
 `;
 
@@ -14,6 +14,8 @@ export const ImageLogo = styled.img`
 export const SocialContainer = styled.div`
     display: flex;
     gap: 10px;
+    margin-bottom: 80px;
+    margin-top:33px;
 `;
 
 export const Paragraph = styled.p`
@@ -28,3 +30,7 @@ export const FooterSection = styled.section`
    justify-content: space-between;
    align-items: center;
 `;
+
+export const LinkSocial = styled.a`
+    width: 24px;
+`

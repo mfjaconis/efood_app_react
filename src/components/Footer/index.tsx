@@ -6,6 +6,7 @@ import {
 	FooterContainer,
 	FooterSection,
 	ImageLogo,
+	LinkSocial,
 	Paragraph,
 	SocialContainer,
 } from "./styles";
@@ -17,23 +18,23 @@ function Footer() {
 				<FooterSection>
 					<ImageLogo src={Logo} alt="Logo Efood" />
 					<SocialContainer>
-						<a
+						<LinkSocial
 							href="https://www.instagram.com/"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<img src={InstagramIcon} alt="Instagram" />
-						</a>
-						<a
+						</LinkSocial>
+						<LinkSocial
 							href="https://www.facebook.com/"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<img src={FacebookIcon} alt="Facebook" />
-						</a>
-						<a href="https://x.com/" target="_blank" rel="noopener noreferrer">
+						</LinkSocial>
+						<LinkSocial href="https://x.com/" target="_blank" rel="noopener noreferrer">
 							<img src={TwitterIcon} alt="Twitter" />
-						</a>
+						</LinkSocial>
 					</SocialContainer>
 					<Paragraph>
 						A efood é uma plataforma para divulgação de estabelecimentos, a

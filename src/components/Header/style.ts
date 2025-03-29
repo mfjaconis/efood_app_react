@@ -7,10 +7,11 @@ import bgHeader from "../../assets/images/bg.svg";
 export const HeaderContainer = styled.header<Props>`
     background-image:url(${bgHeader});
     display: flex;
+    height: 384px;
     align-items: center;
     text-align: center;
     padding: 50px;
-    `;
+`;
 
 export const P = styled.p<Props>`
     font-weight: 900;
