@@ -1,7 +1,12 @@
-import type { Restaurante } from "../../App";
 import { ContainerBanner, TitleRestaurant, TypeRestaurant } from "./style";
 
-function Banner({ tipo, titulo, capa }: Restaurante) {
+interface BannerProps {
+	tipo: string;
+	titulo: string;
+	capa: string;
+}
+  
+function Banner({ tipo, titulo, capa }: BannerProps) {
 	return (
 		<ContainerBanner style={{ backgroundImage: `url(${capa})` }}>
 			<div className="container">

@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# eFood App  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **eFood App** é uma aplicação desenvolvida em **ReactJS** com **TypeScript** que simula o funcionamento de um sistema de pedidos para restaurantes. A aplicação permite explorar restaurantes, visualizar os cardápios e adicionar itens ao carrinho de compras.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Descrição  
 
-## Expanding the ESLint configuration
+A aplicação é projetada para oferecer uma experiência simples e intuitiva para os usuários que desejam realizar pedidos online. Com a exibição dos restaurantes e seus respectivos cardápios, o sistema inclui modais para detalhamento de pratos e facilita a interação com o usuário.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Funcionalidades  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Listagem de restaurantes disponíveis.  
+- Exibição do cardápio correspondente ao restaurante selecionado.  
+- Modal para detalhes do prato e adição ao carrinho.  
+- **Funcionalidades futuras (em desenvolvimento):**  
+  - Criação do carrinho de compras.  
+  - Formulário para dados do comprador.  
+  - Escolha da forma de pagamento.  
+  - Status e acompanhamento do pedido.  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🛠️ Tecnologias Utilizadas  
+
+- **ReactJS**  
+- **TypeScript**  
+- **Redux** e **Redux Toolkit**  
+- **Styled-Components**  
+- **React-Redux**  
