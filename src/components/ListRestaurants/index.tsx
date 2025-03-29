@@ -11,7 +11,6 @@ function ListRestaurants() {
 			.then((res) => res.json())
 			.then((data) => {
 				setRestaurants(data);
-				console.log(data)
 			});
 	}, []);
 
