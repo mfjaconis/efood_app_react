@@ -7,6 +7,9 @@ const api = createApi({
 	}),
 	endpoints: (builder) => ({
 		getMenuRestaurants: builder.query<Restaurante[], void>({
+			query: () =>"",
+		}),
+		getMenuRestaurantsById: builder.query<Restaurante[], void>({
 			query: (id) => `/${id}`,
 		}),
 	}),
