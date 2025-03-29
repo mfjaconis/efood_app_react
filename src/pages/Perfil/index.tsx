@@ -4,15 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import Banner from "../../components/Banner";
 import Header from "../../components/Header";
 import ListProducts from "../../components/ListProducts";
+import type { Restaurante } from "../../App";
+
+
 
 function Perfil() {
-	const [restaurantData, setRestaurantData] = useState<{
-		name: string;
-		type: string;
-		image: string;
-	} | null>(null);
+	const [restaurantData, setRestaurantData] = useState<Restaurante>();
 
-	const { id } = useParams<{ id: string | undefined }>();
+	const { id } = useParams<{ id: string }>();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -23,11 +22,7 @@ function Perfil() {
 		fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
-				setRestaurantData({
-					name: data.titulo,
-					type: data.tipo,
-					image: data.capa,
-				});
+				setRestaurantData(data);
 			});
 	}, [id, navigate]);
 
@@ -39,10 +34,10 @@ function Perfil() {
 		<>
 			<Header />
 			<Banner
-				tipo={restaurantData.type}
-				title={restaurantData.name}
-				capa={restaurantData.image}
-			/>
+				tipo={restaurantData.tipo}
+				titulo={restaurantData.titulo}
+				capa={restaurantData.capa} 
+					/>
 			<ListProducts restaurantId={id as string} />
 		</>
 	);
