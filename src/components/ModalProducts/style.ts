@@ -18,29 +18,31 @@ export const ModalContainer = styled.div`
 
 export const ModelCard = styled.div`
     display: flex;
-    justify-content: space-around;
+    position: relative; 
     background-color: ${colors.terceary_bg_color};
     color: ${colors.secundary_text_color};
-    height: 344px;
-    align-items: center;
-    width: 100%;
-    position: relative; 
+    width: 1024px;
+    height: 344px;    
 `;
 
 export const ModelInfos = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: start;
     width: 656px;
-    height: 280px;
+    margin-top: 32px;
+    margin-right: 32px;
 `;
 
 export const ImageModal = styled.img`
     width: 280px;
     height: 280px;
+    margin: 32px 24px 32px 32px;
 `;
 
 export const ParagraphInfo = styled.p`
-    margin: 20px 0;
+    margin: 16px 0;
+    width: 656px;
 `;
 
 export const ButtonCloseModal = styled.button`
