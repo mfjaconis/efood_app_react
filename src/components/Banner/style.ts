@@ -6,7 +6,6 @@ export const ContainerBanner = styled.div`
     color: ${colors.secundary_text_color};
     position: relative;
     display: block;
-    width: 100%;
     height: 280px;
     background-repeat: no-repeat;
     background-size: cover;
