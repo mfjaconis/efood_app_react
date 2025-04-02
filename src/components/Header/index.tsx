@@ -8,7 +8,7 @@ export type Props = {
 function Header({ home }: Props) {
 	return (
 		<>
-			<HeaderContainer>
+			<HeaderContainer home={home}>
 				<div className="container">
 					{home ? (
 						<>
