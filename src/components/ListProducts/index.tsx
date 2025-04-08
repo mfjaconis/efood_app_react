@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { CardapioItem } from "../../App";
 import CardProducts from "../CardProducts/index";
+import ModalCart from "../ModalCart";
 import ModalProducts from "../ModalProducts";
 import { List, ListContainer } from "./styles";
 
@@ -12,6 +13,8 @@ function ListProducts({ restaurantId }: ListProductsProps) {
 	const [cardapio, setCardapio] = useState<CardapioItem[]>([]);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedProduct, setSelectedProduct] = useState<CardapioItem>();
+	const [cart, setCart] = useState<CardapioItem[]>([]);
+	const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
 	useEffect(() => {
 		fetch(
@@ -27,6 +30,11 @@ function ListProducts({ restaurantId }: ListProductsProps) {
 		const product = cardapio.find((item) => item.id === productId);
 		setSelectedProduct(product);
 		setIsModalOpen(true);
+	};
+
+	const handleAddToCart = (product: CardapioItem) => {
+		setCart((prevCart) => [...prevCart, product]);
+		setIsCartModalOpen(true);
 	};
 
 	const closeModal = () => {
@@ -52,8 +60,13 @@ function ListProducts({ restaurantId }: ListProductsProps) {
 			</ListContainer>
 
 			{isModalOpen && selectedProduct && (
-				<ModalProducts product={selectedProduct} onClose={closeModal} />
+				<ModalProducts
+					product={selectedProduct}
+					onClose={closeModal}
+					onAddToCart={handleAddToCart}
+				/>
 			)}
+			{isCartModalOpen && <ModalCart />}
 		</>
 	);
 }

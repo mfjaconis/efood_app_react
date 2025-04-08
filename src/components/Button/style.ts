@@ -4,7 +4,6 @@ import { colors } from "../../styles";
 import type { Props } from ".";
 
 export const ButtonStyled = styled.button<Props>`
-    /* position: ${(props) => (props.modal ? "relative" : "100%")}; */
     width: ${(props) => (props.modal ? "218px" : "100%")};
     height: 24px;
     background-color: ${colors.secundary_bg_color};

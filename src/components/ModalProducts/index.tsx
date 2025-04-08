@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { CardapioItem } from "../../App";
 import Button from "../Button";
 import {
@@ -13,18 +12,18 @@ import {
 type ModalProductsProps = {
 	product: CardapioItem;
 	onClose: () => void;
+	onAddToCart: (product: CardapioItem) => void;
 };
 
-function ModalProducts({ product, onClose }: ModalProductsProps) {
-	const [cart, setCart] = useState<CardapioItem[]>([]);
+function ModalProducts({ product, onClose, onAddToCart }: ModalProductsProps) {
 	const formattedPrice = new Intl.NumberFormat("pt-BR", {
 		style: "currency",
 		currency: "BRL",
 	}).format(product.preco);
 
 	const handleAddToCart = () => {
-		setCart((prevCart) => [...prevCart, product]);
-		console.log(cart);
+		onAddToCart(product);
+		onClose();
 	};
 
 	return (
