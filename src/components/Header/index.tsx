@@ -1,5 +1,11 @@
 import logo from "../../assets/images/logo.svg";
-import { HeaderContainer, HeaderPerfilContainer, LinkToHome, P } from "./style";
+import {
+	ButtonOpenCart,
+	HeaderContainer,
+	HeaderPerfilContainer,
+	LinkToHome,
+	P,
+} from "./style";
 
 export type Props = {
 	home?: boolean;
@@ -23,7 +29,7 @@ function Header({ home }: Props) {
 							<HeaderPerfilContainer>
 								<LinkToHome to={"/"}>Restaurantes</LinkToHome>
 								<img src={logo} alt="Logo Efood" />
-								<P>0 produto(s) no carrinho</P>
+								<ButtonOpenCart>0 produto(s) no carrinho</ButtonOpenCart>
 							</HeaderPerfilContainer>
 						</>
 					)}

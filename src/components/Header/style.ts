@@ -33,3 +33,12 @@ export const HeaderPerfilContainer = styled.div`
         align-items: center;
         
     `;
+
+export const ButtonOpenCart = styled.button`
+    font-size: 18px;
+    font-weight: 900;
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    color: inherit;
+`;

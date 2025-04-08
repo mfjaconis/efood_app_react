@@ -66,7 +66,7 @@ function ListProducts({ restaurantId }: ListProductsProps) {
 					onAddToCart={handleAddToCart}
 				/>
 			)}
-			{isCartModalOpen && <ModalCart />}
+			{isCartModalOpen && <ModalCart cart={cart} />}
 		</>
 	);
 }
