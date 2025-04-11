@@ -1,4 +1,8 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import logo from "../../assets/images/logo.svg";
+import { RootState } from "../../store";
+import ModalCart from "../ModalCart";
 import {
 	ButtonOpenCart,
 	HeaderContainer,
@@ -12,6 +16,16 @@ export type Props = {
 };
 
 function Header({ home }: Props) {
+	const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+
+	const handleOpenModal = () => {
+		setIsCartModalOpen(true);
+	};
+
+	const cart = useSelector((state: RootState) => state.cart.items);
+
+	const totalItems = cart.length;
+
 	return (
 		<>
 			<HeaderContainer home={home}>
@@ -29,12 +43,17 @@ function Header({ home }: Props) {
 							<HeaderPerfilContainer>
 								<LinkToHome to={"/"}>Restaurantes</LinkToHome>
 								<img src={logo} alt="Logo Efood" />
-								<ButtonOpenCart>0 produto(s) no carrinho</ButtonOpenCart>
+								<ButtonOpenCart onClick={handleOpenModal}>
+									{totalItems} produto(s) no carrinho
+								</ButtonOpenCart>
 							</HeaderPerfilContainer>
 						</>
 					)}
 				</div>
 			</HeaderContainer>
+			{isCartModalOpen && (
+				<ModalCart onClose={() => setIsCartModalOpen(false)} />
+			)}
 		</>
 	);
 }

@@ -1,19 +1,25 @@
-import { useEffect, useState } from "react";
-import type { Restaurante } from "../../App";
+import { useGetMenuRestaurantsQuery } from "../../services/api";
 import CardRestaurants from "../CardRestaurants/index";
 import { List, ListContainer } from "./styles";
 
 function ListRestaurants() {
-	const [restaurants, setRestaurants] = useState<Restaurante[]>([]);
+	const {
+		data: restaurants,
+		isLoading,
+		isError,
+	} = useGetMenuRestaurantsQuery();
 
-	useEffect(() => {
-		fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
-			.then((res) => res.json())
-			.then((data) => {
-				setRestaurants(data);
-				console.log(data)
-			});
-	}, []);
+	if (isLoading) {
+		return <div>Carregando...</div>;
+	}
+
+	if (isError) {
+		return <div>Ocorreu um erro ao carregar os dados.</div>;
+	}
+
+	if (!restaurants) {
+		return <div>Não há restaurantes disponíveis.</div>;
+	}
 
 	return (
 		<ListContainer>

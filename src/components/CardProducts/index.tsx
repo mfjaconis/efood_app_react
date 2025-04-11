@@ -3,17 +3,17 @@ import Button from "../Button";
 import { CardContainer, Image, InfoCard, Paragraph, Title } from "./style";
 
 type ProductsCardProps = {
-	cardapio: CardapioItem;
+	cardapioItem: CardapioItem;
 	onClick: () => void;
 };
 
-function CardProducts({ cardapio, onClick }: ProductsCardProps) {
+function CardProducts({ cardapioItem, onClick }: ProductsCardProps) {
 	return (
 		<CardContainer>
-			<Image src={cardapio.foto} alt="Imagem do restaurante" />
+			<Image src={cardapioItem.foto} alt="Imagem do restaurante" />
 			<InfoCard>
-				<Title>{cardapio.nome}</Title>
-				<Paragraph>{cardapio.descricao}</Paragraph>
+				<Title>{cardapioItem.nome}</Title>
+				<Paragraph>{cardapioItem.descricao}</Paragraph>
 				<Button onClick={onClick}>Mais detalhes</Button>
 			</InfoCard>
 		</CardContainer>

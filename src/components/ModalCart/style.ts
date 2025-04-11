@@ -8,7 +8,6 @@ export const ModalContainer = styled.div`
     top: 0;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.5); 
-    
     `;
 
 export const ModelCard = styled.div`
@@ -21,6 +20,7 @@ export const ModelCard = styled.div`
     background-color: ${colors.terceary_bg_color};
     color: ${colors.secundary_text_color};
     padding: 32px 8px;
+    z-index: 5;
 `;
 
 export const ModelInfos = styled.div`

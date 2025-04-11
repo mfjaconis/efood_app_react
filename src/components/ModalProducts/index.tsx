@@ -23,7 +23,6 @@ function ModalProducts({ product, onClose, onAddToCart }: ModalProductsProps) {
 
 	const handleAddToCart = () => {
 		onAddToCart(product);
-		onClose();
 	};
 
 	return (

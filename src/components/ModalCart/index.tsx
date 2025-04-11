@@ -10,33 +10,44 @@ import {
 	TrashButton,
 } from "./style";
 
-import type { CardapioItem } from "../../App";
+import { useDispatch, useSelector } from "react-redux";
 import Trash from "../../assets/images/lixeira-de-reciclagem 1.png";
+import type { RootState } from "../../store";
+import { remove } from "../../store/reducer/cart";
 import Button from "../Button";
 
 type ModalCartProps = {
-	cart: CardapioItem[];
+	onClose: () => void;
 };
 
-function ModalCart({ cart }: ModalCartProps) {
+function ModalCart({ onClose }: ModalCartProps) {
+	const dispatch = useDispatch();
+
+	const cart = useSelector((state: RootState) => state.cart.items);
+
+	const handleRemoveToCart = (id: number) => {
+		dispatch(remove(id));
+	};
+
 	const handleOpenCart = () => {
 		alert("proxima pagina");
 	};
 
 	const total = cart.reduce((acc, item) => acc + item.preco, 0);
-	const formattedTotal = new Intl.NumberFormat("pt-BR", {
-		style: "currency",
-		currency: "BRL",
-	}).format(total);
+
 	const formatPrice = (price: number) =>
 		new Intl.NumberFormat("pt-BR", {
 			style: "currency",
 			currency: "BRL",
 		}).format(price);
 
+	const handleClickOutside = (_event: React.MouseEvent<HTMLDivElement>) => {
+		onClose();
+	};
+
 	return (
-		<ModalContainer>
-			<ModelCard>
+		<ModalContainer onClick={handleClickOutside}>
+			<ModelCard onClick={(event) => event.stopPropagation()}>
 				{cart.map((item) => (
 					<ModelInfos key={item.id}>
 						<ImageModal src={item.foto} alt={item.nome} />
@@ -44,14 +55,14 @@ function ModalCart({ cart }: ModalCartProps) {
 							<TitleProdutc>{item.nome}</TitleProdutc>
 							<ParagraphPrice>{formatPrice(item.preco)}</ParagraphPrice>
 						</ModelContent>
-						<TrashButton>
+						<TrashButton onClick={() => handleRemoveToCart(item.id)}>
 							<img src={Trash} alt="Excluir produto" />
 						</TrashButton>
 					</ModelInfos>
 				))}
 				<ContentValue>
 					<p>Valor total</p>
-					<p>{formattedTotal}</p>
+					<p>{formatPrice(total)}</p>
 				</ContentValue>
 				<Button onClick={handleOpenCart}>Continuar com a entrega</Button>
 			</ModelCard>
