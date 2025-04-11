@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import type { Restaurante } from "../../App";
 import Banner from "../../components/Banner";
 import Header from "../../components/Header";
 import ListProducts from "../../components/ListProducts";
-import type { Restaurante } from "../../App";
-
-
 
 function Perfil() {
 	const [restaurantData, setRestaurantData] = useState<Restaurante>();
@@ -36,9 +34,9 @@ function Perfil() {
 			<Banner
 				tipo={restaurantData.tipo}
 				titulo={restaurantData.titulo}
-				capa={restaurantData.capa} 
-					/>
-			<ListProducts restaurantId={id as string} />
+				capa={restaurantData.capa}
+			/>
+			<ListProducts />
 		</>
 	);
 }
