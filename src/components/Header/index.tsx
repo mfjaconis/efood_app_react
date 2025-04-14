@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import logo from "../../assets/images/logo.svg";
-import { RootState } from "../../store";
+import type { RootState } from "../../store";
 import ModalCart from "../ModalCart";
 import {
 	ButtonOpenCart,

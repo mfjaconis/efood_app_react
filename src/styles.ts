@@ -5,6 +5,7 @@ export const colors = {
 	secundary_bg_color: "#FFEBD9",
 	terceary_bg_color: "#E66767",
 	secundary_text_color: "#FFFFFF",
+	text_form_color: "#4B4B4B",
 };
 
 export const GlobalCss = createGlobalStyle`
