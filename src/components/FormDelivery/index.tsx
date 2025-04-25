@@ -13,22 +13,20 @@ function FormDelivery({ onBack, onSubmit }: FormDeliveryProps) {
 	const dispatch = useDispatch();
 	const clientData = useSelector((state: RootState) => state.client);
 
-	const handleChange = () => {
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = event.target;
 		dispatch(
 			updateClient({
-				name: value,
-				receiver: "",
-				address: "",
-				city: "",
-				cep: "",
-				number: "",
+				...clientData,
+				[name]: value,
 			}),
 		);
 	};
 
 	const handleContinue = () => {
 		if (
-			clientData.receiver &&
+			clientData.name &&
 			clientData.address &&
 			clientData.city &&
 			clientData.cep &&
@@ -44,12 +42,12 @@ function FormDelivery({ onBack, onSubmit }: FormDeliveryProps) {
 		<ContianerForm>
 			<h2>Entrega</h2>
 			<FormStyle>
-				<label htmlFor="receiver">Quem irá receber</label>
+				<label htmlFor="name">Quem irá receber</label>
 				<input
 					type="text"
-					id="receiver"
-					name="receiver"
-					value={clientData.receiver}
+					id="name"
+					name="name"
+					value={clientData.name}
 					onChange={handleChange}
 				/>
 

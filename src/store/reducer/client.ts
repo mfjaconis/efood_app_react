@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type ClientState = {
-	receiver: string;
+	name: string;
 	address: string;
 	city: string;
 	cep: string;
@@ -10,7 +10,7 @@ type ClientState = {
 };
 
 const initialState: ClientState = {
-	receiver: "",
+	name: "",
 	address: "",
 	city: "",
 	cep: "",

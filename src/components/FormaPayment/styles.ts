@@ -6,8 +6,10 @@ export const ContianerForm = styled.div`
     height: 347px;
     color: ${colors.secundary_bg_color};
 
-    h2{
+    h3{
         margin-bottom: 16px;
+        font-size: 16px;
+        font-weight: 700;
     }
 
     Button{
@@ -43,18 +45,30 @@ export const FormStyle = styled.div`
     }
 `;
 
-export const ContainerEnd = styled.div`
+export const ContainerInfo = styled.div`
     display: grid;
     grid-template-columns: .5fr .5fr;
-    gap: 34px;
 `;
 
-export const ContentEnd = styled.div`
+export const ContentInfo = styled.div`
     display: flex;
     flex-direction: column;
 
-    input{
-        max-width: 155px;  
+    #card_number{
+        width: 228px;
+        margin-right: 30px;
+    }
+
+    #card_cvv{
+        width: 87px;
+    }
+
+    #expiry_month, #expiry_year{
+        width: 155px;
+    }
+
+    #expiry_month{
+        margin-right: 34px;
     }
     
 `;
