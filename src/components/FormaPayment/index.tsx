@@ -29,7 +29,6 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
 
     const dispatch = useDispatch();
     const paymentData = useSelector((state: RootState) => state.payment);
-    const [postOrderCheckout] = usePostOrderCheckoutMutation();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;

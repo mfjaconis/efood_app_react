@@ -1,43 +1,81 @@
-import { useGetMenuOrderQuery } from "../../services/api";
+import { useSelector } from "react-redux";
+import { usePostOrderCheckoutMutation } from "../../services/api";
+import type { RootState } from "../../store";
 import Button from "../Button";
 import { ContianerOrder } from "./styles";
 
-export type ProductOrder = {
-    products: { id: number; price: number }[];
-};
-
 function Order() {
-    const { data, error, isLoading } = useGetMenuOrderQuery();
+    const client = useSelector((state: RootState) => state.client);
+    const payment = useSelector((state: RootState) => state.payment);
+
+
+    const [checkoutOrder, { isLoading, isError, data }] = usePostOrderCheckoutMutation();
 
     const handleConclude = () => {
-        alert("Dados enviado com sucesso")
+        checkoutOrder({
+            products: [{
+                id: 1,
+                price: 20
+            }],
+            delivery: {
+                receiver: client.name,
+                address: {
+                    description: client.address,
+                    city: client.city,
+                    zipCode: client.cep,
+                    number: Number(client.number),
+                    complement: client.complement || "",
+                },
+            },
+            payment: {
+                card: {
+                    name: payment.card_name,
+                    number: payment.card_number,
+                    code: Number(payment.card_cvv),
+                    expires: {
+                        month: Number(payment.expiry_month),
+                        year: Number(payment.expiry_year),
+                    },
+                },
+            },
+        })
+        console.log(data)
+
     };
 
-    if (isLoading) return <p>Carregando...</p>;
-    if (error) return <p>Ocorreu um erro ao carregar os dados do pedido.</p>;
+    console.log(data)
+
+    if (isLoading) {
+        return <p>Processando pedido...</p>;
+    }
+
+    if (isError) {
+        return <p>Ocorreu um erro ao processar o pedido. Tente novamente.</p>;
+    }
+
+    const orderId = data?.orderId;
 
     return (
+
         <ContianerOrder>
-            {data ? (
-                <>
-                    <h3>Pedido realizado - {data.products[0].id}</h3>
-                    <p>
-                        Estamos felizes em informar que seu pedido já está em processo de
-                        preparação e, em breve, será entregue no endereço fornecido. <br /><br />
-                        Gostaríamos de ressaltar que nossos entregadores não estão autorizados a
-                        realizar cobranças extras.
-                        <br /><br />
-                        Lembre-se da importância de higienizar as mãos após o recebimento do
-                        pedido, garantindo assim sua segurança e bem-estar durante a refeição.
-                        <br /><br />
-                        Esperamos que desfrute de uma deliciosa e agradável experiência
-                        gastronômica. Bom apetite!
-                    </p>
-                    <Button onClick={handleConclude}>Concluir</Button>
-                </>
-            ) : (
-                <p>Não foi possível recuperar o ID do pedido.</p>
-            )}
+            <>
+                <h3>Pedido realizado - {data} </h3>
+                <p>
+                    Estamos felizes em informar que seu pedido já está em processo de
+                    preparação e, em breve, será entregue no endereço fornecido. <br /><br />
+                    Gostaríamos de ressaltar que nossos entregadores não estão autorizados a
+                    realizar cobranças extras.
+                    <br /><br />
+                    Lembre-se da importância de higienizar as mãos após o recebimento do
+                    pedido, garantindo assim sua segurança e bem-estar durante a refeição.
+                    <br /><br />
+                    Esperamos que desfrute de uma deliciosa e agradável experiência
+                    gastronômica. Bom apetite!
+                </p>
+                <Button onClick={handleConclude}>Concluir</Button>
+            </>
+
+
         </ContianerOrder>
     );
 }
