@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { colors } from "./../../styles";
 
 export const ContianerForm = styled.div`
+    position: relative;
     width: 345px;
     height: 347px;
     color: ${colors.secundary_bg_color};
-
+    z-index: 5;
+    
     h2{
         margin-bottom: 16px;
     }
@@ -13,6 +15,8 @@ export const ContianerForm = styled.div`
     Button{
         margin-bottom: 8px;
     }
+
+    
 `;
 
 export const FormStyle = styled.div`
@@ -41,6 +45,7 @@ export const FormStyle = styled.div`
         outline: none; 
         border: none; 
     }
+
 `;
 
 export const ContainerEnd = styled.div`

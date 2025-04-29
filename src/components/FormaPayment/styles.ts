@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { colors } from "./../../styles";
 
 export const ContianerForm = styled.div`
+    position: relative;
     width: 345px;
     height: 347px;
     color: ${colors.secundary_bg_color};
+    z-index: 5;
 
     h3{
         margin-bottom: 16px;

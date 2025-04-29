@@ -28,7 +28,7 @@ export const ContainerBanner = styled.div`
     .container{
         position: relative;
         padding: 20px 0;
-        z-index: 2;
+        z-index: 1;
     }
 `;
 
