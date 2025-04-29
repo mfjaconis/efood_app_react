@@ -5,6 +5,10 @@ export const FooterContainer = styled.footer`
     background-color: ${colors.secundary_bg_color};
     height: 298px;
     padding: 30px;
+
+    @media (max-width: 550px) {
+        padding: 15px 10px;
+    }
 `;
 
 export const ImageLogo = styled.img`
@@ -16,6 +20,10 @@ export const SocialContainer = styled.div`
     gap: 10px;
     margin-bottom: 80px;
     margin-top:33px;
+
+    @media (max-width: 550px) {
+        margin-bottom: 45px;
+    }
 `;
 
 export const Paragraph = styled.p`

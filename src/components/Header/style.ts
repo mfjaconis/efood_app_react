@@ -11,6 +11,10 @@ export const HeaderContainer = styled.header<Props>`
     align-items: center;
     text-align: center;
     padding: 50px;
+
+    @media (max-width: 550px) {
+        height: ${(props) => (props.home ? "250px" : "186px")}; 
+    }
 `;
 
 export const P = styled.p<Props>`
@@ -19,6 +23,10 @@ export const P = styled.p<Props>`
     text-align: center;
     margin-top: ${(props) => (props.home ? "150px" : "0")};
     
+    @media (max-width: 550px) {
+        font-size: ${(props) => (props.home ? "25px" : "18px")};
+        margin-top: ${(props) => (props.home ? "50px" : "0")}; 
+    }
     `;
 
 export const LinkToHome = styled(Link)`
