@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { usePostOrderCheckoutMutation } from "../../services/api";
 import type { RootState } from "../../store";
-import { updatePayment } from "../../store/reducer/payment";
+import { setOrderId, updatePayment } from "../../store/reducer/payment";
 import Button from "../Button";
 import { ContainerInfo, ContentInfo, ContianerForm, FormStyle } from "./styles";
 
@@ -29,6 +30,9 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
 
     const dispatch = useDispatch();
     const paymentData = useSelector((state: RootState) => state.payment);
+    const client = useSelector((state: RootState) => state.client);
+    const [checkoutOrder] = usePostOrderCheckoutMutation();
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -39,6 +43,44 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
             }),
         );
     };
+
+
+    const handleConclude = () => {
+        checkoutOrder({
+            products: [{
+                id: 1,
+                price: 20,
+            }],
+            delivery: {
+                receiver: client.name,
+                address: {
+                    description: client.address,
+                    city: client.city,
+                    zipCode: client.cep,
+                    number: Number(client.number),
+                    complement: client.complement || "",
+                },
+            },
+            payment: {
+                card: {
+                    name: paymentData.card_name,
+                    number: paymentData.card_number,
+                    code: Number(paymentData.card_cvv),
+                    expires: {
+                        month: Number(paymentData.expiry_month),
+                        year: Number(paymentData.expiry_year),
+                    },
+                },
+            },
+        }).then(response => {
+            if (response?.data?.orderId) {
+                dispatch(setOrderId(response.data.orderId));
+            }
+        }).catch(error => {
+            console.error("Erro ao processar o pedido:", error);
+        });
+    };
+
 
     const handleContinue = () => {
         const { card_name, card_number, card_cvv, expiry_month, expiry_year } = paymentData;
@@ -69,6 +111,7 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
         }
 
         onSubmit();
+        handleConclude();
     };
 
 

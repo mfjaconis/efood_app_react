@@ -6,6 +6,7 @@ type PaymentState = {
     card_cvv: string;
     expiry_month: string;
     expiry_year: string;
+    orderId: string | null;
 };
 
 const initialState: PaymentState = {
@@ -13,7 +14,8 @@ const initialState: PaymentState = {
     card_number: "",
     card_cvv: "",
     expiry_month: "",
-    expiry_year: ""
+    expiry_year: "",
+    orderId: null
 };
 
 const paymentSlice = createSlice({
@@ -26,8 +28,11 @@ const paymentSlice = createSlice({
         resetPayment() {
             return initialState;
         },
+        setOrderId(state, action: PayloadAction<string | null>) {
+            state.orderId = action.payload;
+        },
     },
 });
 
-export const { updatePayment, resetPayment } = paymentSlice.actions;
+export const { updatePayment, resetPayment, setOrderId } = paymentSlice.actions;
 export default paymentSlice.reducer;

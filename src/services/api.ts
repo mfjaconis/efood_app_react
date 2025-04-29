@@ -8,6 +8,7 @@ type Product = {
 
 type ProductOrderPayload = {
 	products: Product[];
+	orderId: string,
 	delivery: {
 		receiver: string,
 		address: {
@@ -47,7 +48,7 @@ const api = createApi({
 		getMenuOrder: builder.query<void, ProductOrderPayload>({
 			query: () => "/checkout",
 		}),
-		postOrderCheckout: builder.mutation<any, ProductOrderPayload>({
+		postOrderCheckout: builder.mutation<void, ProductOrderPayload>({
 			query: (body) => ({
 				url: "checkout",
 				method: "POST",
