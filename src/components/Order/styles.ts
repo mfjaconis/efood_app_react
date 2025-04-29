@@ -17,4 +17,8 @@ export const ContianerOrder = styled.div`
         font-weight: 400;
         line-height: 22px; 
     }
+
+    Button {
+        margin-top: 24px;
+    }
 `;

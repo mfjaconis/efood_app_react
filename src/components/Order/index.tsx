@@ -1,14 +1,23 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import type { RootState } from "../../store";
+import { resetCart } from "../../store/reducer/cart";
+import { resetClient } from "../../store/reducer/client";
+import { resetPayment } from "../../store/reducer/payment";
 import Button from "../Button";
 import { ContianerOrder } from "./styles";
 
 function Order() {
     const orderId = useSelector((state: RootState) => state.payment.orderId);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleConclude = () => {
         alert("Pedido realizado com sucesso!")
-
+        navigate("/")
+        dispatch(resetClient())
+        dispatch(resetCart())
+        dispatch(resetPayment())
     };
 
 

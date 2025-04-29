@@ -47,6 +47,7 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
 
     const handleConclude = () => {
         checkoutOrder({
+            orderId: "",
             products: [{
                 id: 1,
                 price: 20,
@@ -86,7 +87,7 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
         const { card_name, card_number, card_cvv, expiry_month, expiry_year } = paymentData;
 
         if (!isValidCardName(card_name)) {
-            alert("Por favor, insira um nome completo (nome e sobrenome).");
+            alert("Por favor, insira apenas letras contendo nome completo (nome e sobrenome).");
             return;
         }
 
@@ -96,7 +97,7 @@ function FormPayment({ onBack, onSubmit }: FormPaymentProps) {
         }
 
         if (!isValidCVV(card_cvv)) {
-            alert("O CVV deve conter exatamente 3 dígitos.");
+            alert("O CVV deve conter somente números e exatamente 3 dígitos.");
             return;
         }
 
