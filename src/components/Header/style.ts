@@ -40,6 +40,10 @@ export const HeaderPerfilContainer = styled.div`
         justify-content: space-between;
         align-items: center;
         
+        @media (max-width: 680px) {
+            flex-direction: column;
+            gap: 20px;
+        }
     `;
 
 export const ButtonOpenCart = styled.button`

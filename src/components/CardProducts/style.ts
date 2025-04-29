@@ -8,6 +8,8 @@ export const CardContainer = styled.section`
     color: ${colors.secundary_bg_color};
     width: 320px;
     height: 338px;
+
+    
 `;
 
 export const Image = styled.img`

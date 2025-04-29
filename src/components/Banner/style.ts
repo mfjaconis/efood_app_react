@@ -29,6 +29,10 @@ export const ContainerBanner = styled.div`
         position: relative;
         padding: 20px 0;
         z-index: 1;
+
+        @media (max-width: 1050px) {
+            padding: 0 20px;
+        }
     }
 `;
 
@@ -41,4 +45,9 @@ export const TitleRestaurant = styled.h3`
     font-weight: 900;
     font-size: 32px;
     padding: 130px 0;
+
+    @media (max-width: 1050px) {
+            padding: 0;
+            padding-top: 180px;
+        }
 `;

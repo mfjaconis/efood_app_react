@@ -13,8 +13,14 @@ export const ModalContainer = styled.div`
         display: flex;
         align-items: center;
         height: 100%;
+
+        @media (max-width: 1050px) {
+            justify-content: center;
+
+        }
     }
     `;
+
 
 export const ModelCard = styled.div`
     display: flex;
@@ -23,6 +29,31 @@ export const ModelCard = styled.div`
     color: ${colors.secundary_text_color};
     width: 1024px;
     height: 344px;    
+
+    @media (max-width: 1050px) {
+        width: 800px;
+    }
+
+    @media (max-width: 820px) {
+        width: 650px;
+    }
+
+    @media (max-width: 650px) {
+        width: 430px;
+        height: 300px;
+
+        h2{
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 440px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 430px;
+    }
+    
 `;
 
 export const ModelInfos = styled.div`
@@ -32,17 +63,37 @@ export const ModelInfos = styled.div`
     width: 656px;
     margin-top: 32px;
     margin-right: 32px;
+
+    @media (max-width: 440px) {
+        align-items: center;
+        width: 430px;
+        margin-top: 5px;
+    }
 `;
 
 export const ImageModal = styled.img`
     width: 280px;
     height: 280px;
     margin: 32px 24px 32px 32px;
+
+    @media (max-width: 650px) {
+        width: 180px;
+        height: 180px;
+    }
 `;
 
 export const ParagraphInfo = styled.p`
     margin: 16px 0;
     width: 656px;
+
+    @media (max-width: 1050px) {
+        width: auto;
+    }
+
+    @media (max-width: 650px) {
+        width: 150px;
+        font-size: 8px;
+    }
 `;
 
 export const ButtonCloseModal = styled.button`
@@ -53,5 +104,5 @@ export const ButtonCloseModal = styled.button`
     background: none;
     border: none;
     cursor: pointer;
-    color: ${colors.secundary_text_color}
+    color: ${colors.secundary_text_color};
 `;

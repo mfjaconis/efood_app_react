@@ -19,4 +19,9 @@ export const ButtonStyled = styled.button<Props>`
     &:active{
         opacity: 0.7;
     }
+
+    @media (max-width: 650px) {
+        font-size: ${(props) => (props.modal ? "10px" : "16px")} ;
+        width: ${(props) => (props.modal ? "170px" : "100%")};
+    }
 `;
